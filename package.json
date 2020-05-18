@@ -12,6 +12,8 @@
   "dependencies": {
     "debug": "^4.1.1",
     "express": "^4.16.4",
+    "libp2p": "^0.27.8",
+    "libp2p-webrtc-direct": "^0.4.0",
     "ws": "^6.1.2"
   }
 }

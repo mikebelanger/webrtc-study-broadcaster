@@ -40,9 +40,9 @@ open https://${NGROK_URL}/screen.html
     * Acts as a signalling server, communicating with clients over
       websockets
 
-* Camera page `/camera.html`
+* Camera page `/canvas.html`
     * Acts as an initializer peer
-    * Streams camera signal over WebRTC
+    * Streams canvas signal over WebRTC
 
 * Screen page `/screen.html`
     * Receives & displays camera signal
@@ -59,3 +59,6 @@ open https://${NGROK_URL}/screen.html
     * `RTCPeerConnection.ontrack` instead of deprecated
       `RTCPeerConnection.onaddstrea`
     * Websockets instead of socket.io.
+
+* This fork is almost an exact copy of [webrtc-study-broadcaster](https://github.com/flpvsk/webrtc-study-broadcaster).  Differences are:
+    * I'm streaming a canvas input instead of a camera.

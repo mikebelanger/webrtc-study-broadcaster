@@ -44,16 +44,21 @@
     });
   };
 
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   try {
     console.log('in camera');
 
-    const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: false
-    });
+    const mediaStream = await canvas.captureStream(30);
+    // const mediaStream = await canvas.captureStream();
 
-    window.v.srcObject = mediaStream;
+    console.log(mediaStream);
+    console.log(mediaStream.getTracks());
+
+    window.v = {srcObject: mediaStream};
     // window.v.play();
 
     const socket = await getSocket(peerId, peerType);
@@ -68,7 +73,8 @@
 
           // peerConnection.addStream(window.v.srcObject);
           for (let track of mediaStream.getTracks()) {
-            peerConnection.addTrack(track, mediaStream);
+            // peerConnection.addTrack(track, mediaStream);
+            peerConnection.addStream(mediaStream);
           }
 
           const sdp = await peerConnection.createOffer();
@@ -117,6 +123,11 @@
           ));
         }
       }
+
+      // for some reason y
+      ctx.fillStyle = "red";
+      ctx.fillRect(40,100,100,100);
+
     });
 
   } catch (e) {

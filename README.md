@@ -1,6 +1,6 @@
 ## WebRTC study: remote camera / screen
 
-A minimal setup for transmitting / receiving video signal using WebRTC.
+A minimal setup for transmitting / receiving canvas as a video signal using WebRTC.
 
 ### Requirements
 
@@ -15,7 +15,7 @@ npm i
 npm start
 
 # open these urls in your browser
-open http://localhost:3000/camera.html
+open http://localhost:3000/canvas.html
 open http://localhost:3000/screen.html
 ```
 
@@ -29,7 +29,7 @@ npm start
 ngrok http 3000
 
 # open on different devices
-open https://${NGROK_URL}/camera.html
+open https://${NGROK_URL}/canvas.html
 open https://${NGROK_URL}/screen.html
 ```
 
@@ -47,6 +47,9 @@ open https://${NGROK_URL}/screen.html
 * Screen page `/screen.html`
     * Receives & displays camera signal
 
+### Problems
+
+I've noticed google's STUN server a little unreliable.  Not sure why, I tried different STUN servers, with varying success.
 
 ### Acknowledgements
 
@@ -61,4 +64,5 @@ open https://${NGROK_URL}/screen.html
     * Websockets instead of socket.io.
 
 * This fork is almost an exact copy of [webrtc-study-broadcaster](https://github.com/flpvsk/webrtc-study-broadcaster).  Differences are:
-    * I'm streaming a canvas input instead of a camera.
+    * I'm streaming a canvas input instead of a camera input.  Just as a test.
+  
